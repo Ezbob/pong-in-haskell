@@ -1,0 +1,322 @@
+
+package: GLUT-2.7.0.14
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -buildexamples usenativewindowslibraries
+dependencies: OpenGL-3.0.2.2 StateVar-1.1.1.1 array-0.5.3.0
+              base-4.12.0.0 containers-0.6.0.1 transformers-0.5.5.0
+install-outcome: DependencyFailed GLUT-2.7.0.14
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: ObjectName-1.1.0.1
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: base-4.12.0.0 transformers-0.5.5.0
+install-outcome: BuildFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGL-3.0.2.2
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: GLURaw-2.0.0.4 ObjectName-1.1.0.1 OpenGLRaw-3.3.2.0
+              StateVar-1.1.1.1 base-4.12.0.0 bytestring-0.10.8.2
+              containers-0.6.0.1 text-1.2.3.1 transformers-0.5.5.0
+install-outcome: DependencyFailed OpenGL-3.0.2.2
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-1.13.0.1
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -explicitbackend -glfw glut
+dependencies: GLUT-2.7.0.14 OpenGL-3.0.2.2 base-4.12.0.0
+              bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 ghc-prim-0.5.3
+              gloss-rendering-1.13.0.2
+install-outcome: DependencyFailed gloss-1.13.0.1
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-rendering-1.13.0.2
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: GLUT-2.7.0.14 OpenGL-3.0.2.2 base-4.12.0.0
+              bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1
+install-outcome: DependencyFailed gloss-rendering-1.13.0.2
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLURaw-2.0.0.4
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: usenativewindowslibraries
+dependencies: OpenGLRaw-3.3.2.0 base-4.12.0.0 transformers-0.5.5.0
+install-outcome: DependencyFailed GLURaw-2.0.0.4
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLUT-2.7.0.14
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -buildexamples usenativewindowslibraries
+dependencies: OpenGL-3.0.2.2 StateVar-1.1.1.1 array-0.5.3.0
+              base-4.12.0.0 containers-0.6.0.1 transformers-0.5.5.0
+install-outcome: DependencyFailed GLUT-2.7.0.14
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: ObjectName-1.1.0.1
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: base-4.12.0.0 transformers-0.5.5.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGL-3.0.2.2
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: GLURaw-2.0.0.4 ObjectName-1.1.0.1 OpenGLRaw-3.3.2.0
+              StateVar-1.1.1.1 base-4.12.0.0 bytestring-0.10.8.2
+              containers-0.6.0.1 text-1.2.3.1 transformers-0.5.5.0
+install-outcome: DependencyFailed OpenGL-3.0.2.2
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGLRaw-3.3.2.0
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -osandroid usegles2 useglxgetprocaddress
+       usenativewindowslibraries
+dependencies: base-4.12.0.0 bytestring-0.10.8.2 containers-0.6.0.1
+              fixed-0.2.1.1 half-0.3 text-1.2.3.1 transformers-0.5.5.0
+install-outcome: BuildFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: StateVar-1.1.1.1
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: base-4.12.0.0 stm-2.5.0.0 transformers-0.5.5.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: bmp-1.2.6.3
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: base-4.12.0.0 binary-0.8.6.0 bytestring-0.10.8.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: fixed-0.2.1.1
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: base-4.12.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-1.13.0.1
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -explicitbackend -glfw glut
+dependencies: GLUT-2.7.0.14 OpenGL-3.0.2.2 base-4.12.0.0
+              bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 ghc-prim-0.5.3
+              gloss-rendering-1.13.0.2
+install-outcome: DependencyFailed gloss-1.13.0.1
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-rendering-1.13.0.2
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: GLUT-2.7.0.14 OpenGL-3.0.2.2 base-4.12.0.0
+              bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1
+install-outcome: DependencyFailed gloss-rendering-1.13.0.2
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: half-0.3
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: base-4.12.0.0 deepseq-1.4.4.0
+              template-haskell-2.14.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLURaw-2.0.0.4
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: usenativewindowslibraries
+dependencies: OpenGLRaw-3.3.2.0 base-4.12.0.0 transformers-0.5.5.0
+install-outcome: ConfigureFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLUT-2.7.0.14
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -buildexamples usenativewindowslibraries
+dependencies: OpenGL-3.0.2.2 StateVar-1.1.1.1 array-0.5.3.0
+              base-4.12.0.0 containers-0.6.0.1 transformers-0.5.5.0
+install-outcome: DependencyFailed GLUT-2.7.0.14
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGL-3.0.2.2
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: GLURaw-2.0.0.4 ObjectName-1.1.0.1 OpenGLRaw-3.3.2.0
+              StateVar-1.1.1.1 base-4.12.0.0 bytestring-0.10.8.2
+              containers-0.6.0.1 text-1.2.3.1 transformers-0.5.5.0
+install-outcome: DependencyFailed OpenGL-3.0.2.2
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGLRaw-3.3.2.0
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -osandroid usegles2 useglxgetprocaddress
+       usenativewindowslibraries
+dependencies: base-4.12.0.0 bytestring-0.10.8.2 containers-0.6.0.1
+              fixed-0.2.1.1 half-0.3 text-1.2.3.1 transformers-0.5.5.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-1.13.0.1
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -explicitbackend -glfw glut
+dependencies: GLUT-2.7.0.14 OpenGL-3.0.2.2 base-4.12.0.0
+              bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 ghc-prim-0.5.3
+              gloss-rendering-1.13.0.2
+install-outcome: DependencyFailed gloss-1.13.0.1
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-rendering-1.13.0.2
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: GLUT-2.7.0.14 OpenGL-3.0.2.2 base-4.12.0.0
+              bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1
+install-outcome: DependencyFailed gloss-rendering-1.13.0.2
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLURaw-2.0.0.4
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: usenativewindowslibraries
+dependencies: OpenGLRaw-3.3.2.0 base-4.12.0.0 transformers-0.5.5.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLUT-2.7.0.14
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -buildexamples usenativewindowslibraries
+dependencies: OpenGL-3.0.2.2 StateVar-1.1.1.1 array-0.5.3.0
+              base-4.12.0.0 containers-0.6.0.1 transformers-0.5.5.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGL-3.0.2.2
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: GLURaw-2.0.0.4 ObjectName-1.1.0.1 OpenGLRaw-3.3.2.0
+              StateVar-1.1.1.1 base-4.12.0.0 bytestring-0.10.8.2
+              containers-0.6.0.1 text-1.2.3.1 transformers-0.5.5.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-1.13.0.1
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+flags: -explicitbackend -glfw glut
+dependencies: GLUT-2.7.0.14 OpenGL-3.0.2.2 base-4.12.0.0
+              bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1 ghc-prim-0.5.3
+              gloss-rendering-1.13.0.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-rendering-1.13.0.2
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: GLUT-2.7.0.14 OpenGL-3.0.2.2 base-4.12.0.0
+              bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: pong-0.1.0.0
+os: linux
+arch: x86_64
+compiler: ghc-8.6.3
+client: cabal-install-2.4.0.0
+dependencies: base-4.12.0.0 gloss-1.13.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
