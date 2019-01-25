@@ -1,8 +1,11 @@
 module Main where
 
+import Debug.Trace
 import Graphics.Gloss
 import Graphics.Gloss.Data.ViewPort
 import Graphics.Gloss.Interface.Pure.Game
+
+debug = flip trace
 
 -- | Data describing the state of the pong game.
 data PongGame = Game
@@ -88,12 +91,27 @@ moveBall seconds game = game { ballLoc = (x', y') }
 movePaddles :: Float -> PongGame -> PongGame
 movePaddles seconds game = game { player1 = p1', player2 = p2' }
     where
-        (vp1, vp2) = playerIsMoving game
-        p1 = player1 game
-        p2 = player2 game 
-        
-        p1' = p1 + vp1 * seconds
-        p2' = p2 + vp2 * seconds
+        (vp1, vp2) = playerIsMoving game -- "velocities" of player paddles
+        (paddleWidth, paddleHeight) = paddleRect game
+        p1 = player1 game -- height of player 1 paddle
+        p2 = player2 game -- ------||-------- 2 --||--
+
+        screenHalfHeight = (fromIntegral height / 2) - 6
+        paddleHalfHeight = paddleHeight / 2
+        p1upper = p1 + paddleHalfHeight
+        p1lower = p1 - paddleHalfHeight
+
+        p2upper = p2 + paddleHalfHeight
+        p2lower = p2 - paddleHalfHeight
+
+        p1MayMoveUp = p1upper < screenHalfHeight && vp1 > 0
+        p1MayMoveDown = p1lower > -screenHalfHeight && vp1 < 0
+
+        p2MayMoveUp = p2upper < screenHalfHeight && vp2 > 0
+        p2MayMoveDown = p2lower > -screenHalfHeight && vp2 < 0
+
+        p1' = if p1MayMoveUp || p1MayMoveDown then p1 + vp1 * seconds else p1
+        p2' = if p2MayMoveUp || p2MayMoveDown then p2 + vp2 * seconds else p2
 
 wallCollision :: Position -> Radius -> Bool
 wallCollision (_, y) radius = topCollision || bottomCollision
@@ -147,21 +165,33 @@ paddleBounce game = game { ballVel = ( vx', vy ) }
 
 update :: Float -> PongGame -> PongGame
 update seconds game 
-                | (fst $ playerIsMoving game) /= 0 || (snd $ playerIsMoving game) /= 0 = paddleBounce . wallBounce . (movePaddles seconds) . (moveBall seconds) $ game
-                | (isPaused game) = game
-                | otherwise = paddleBounce . wallBounce . (moveBall seconds) $ game
+    | paddlesMoving = paddleBounce . wallBounce . (movePaddles seconds) . (moveBall seconds) $ game
+    | isPaused game = game
+    | otherwise = paddleBounce . wallBounce . (moveBall seconds) $ game
+    where
+        paddlesMoving = (fst $ playerIsMoving game) /= 0 || (snd $ playerIsMoving game) /= 0 
 
 handleKeys :: Event -> PongGame -> PongGame
-handleKeys (EventKey (Char 'q') _ _ _) game = game { ballLoc = (0, 0) }
-handleKeys (EventKey (Char 'p') (Up) _ _) game = game { isPaused = (not $ isPaused game) }
-handleKeys (EventKey (Char 'w') (Down) _ _) game = game { playerIsMoving = ((fst $ playerIsMoving game), 100) }
-handleKeys (EventKey (Char 'w') (Up) _ _) game = game { playerIsMoving = ((fst $ playerIsMoving game), 0) }
-handleKeys (EventKey (Char 's') (Down) _ _) game = game { playerIsMoving = ((fst $ playerIsMoving game), (-100)) }
-handleKeys (EventKey (Char 's') (Up) _ _) game = game { playerIsMoving = ((fst $ playerIsMoving game), 0) }
-handleKeys (EventKey (SpecialKey KeyDown) (Up) _ _) game = game { playerIsMoving = (0, (snd $ playerIsMoving game)) }
-handleKeys (EventKey (SpecialKey KeyDown) (Down) _ _) game = game { playerIsMoving = ((-100), (snd $ playerIsMoving game)) }
-handleKeys (EventKey (SpecialKey KeyUp) (Up) _ _) game = game { playerIsMoving = (0, (snd $ playerIsMoving game)) }
-handleKeys (EventKey (SpecialKey KeyUp) (Down) _ _) game = game { playerIsMoving = (100, (snd $ playerIsMoving game)) }
+handleKeys (EventKey (Char 'q') _ _ _) game = 
+    game { ballLoc = (0, 0) }
+handleKeys (EventKey (Char 'p') (Up) _ _) game = 
+    game { isPaused = (not $ isPaused game) }
+handleKeys (EventKey (Char 'w') (Up) _ _) game = 
+    game { playerIsMoving = ((fst $ playerIsMoving game), 0) }
+handleKeys (EventKey (Char 'w') (Down) _ _) game =
+    game { playerIsMoving = ((fst $ playerIsMoving game), 100) }
+handleKeys (EventKey (Char 's') (Up) _ _) game = 
+    game { playerIsMoving = ((fst $ playerIsMoving game), 0) }
+handleKeys (EventKey (Char 's') (Down) _ _) game =
+    game { playerIsMoving = ((fst $ playerIsMoving game), (-100)) }
+handleKeys (EventKey (SpecialKey KeyDown) (Up) _ _) game = 
+    game { playerIsMoving = (0, (snd $ playerIsMoving game)) }
+handleKeys (EventKey (SpecialKey KeyDown) (Down) _ _) game = 
+    game { playerIsMoving = ((-100), (snd $ playerIsMoving game)) }
+handleKeys (EventKey (SpecialKey KeyUp) (Up) _ _) game = 
+    game { playerIsMoving = (0, (snd $ playerIsMoving game)) }
+handleKeys (EventKey (SpecialKey KeyUp) (Down) _ _) game = 
+    game { playerIsMoving = (100, (snd $ playerIsMoving game)) }
 handleKeys _ game = game
 
 main :: IO ()
